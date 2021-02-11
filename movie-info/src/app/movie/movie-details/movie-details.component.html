@@ -1,0 +1,37 @@
+<div *ngIf="movie">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}"
+          alt="Movie image"
+          id="movie-img"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ movie.title }}
+            <a
+              href="https://www.imdb.com/title/{{ movie.imdb_id }}/"
+              target="_blank"
+            >
+              <fa-icon [icon]="faImdb" class="text-warning"></fa-icon>
+            </a>
+          </h5>
+          <p class="card-text">
+            <fa-icon [icon]="faStar" class="text-warning"></fa-icon>
+            {{ movie.vote_average }} / 10 with {{ movie.vote_count }} votes from
+            <a
+              href="https://www.themoviedb.org/movie/{{ movie.id }}"
+              target="_blank"
+            >
+              <img src="../../../assets/logos/tmdb.svg" width="80px" alt="" />
+            </a>
+          </p>
+          <p card-text></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

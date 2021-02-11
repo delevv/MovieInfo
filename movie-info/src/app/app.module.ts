@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { MovieModule } from './movie/movie.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -16,6 +17,7 @@ import { MovieModule } from './movie/movie.module';
     CoreModule,
     SharedModule,
     MovieModule,
+    FontAwesomeModule,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,12 +1,12 @@
 export interface MovieInList {
-  backdrop_path?: string;
+  poster_path?: string;
   genre_ids: number[];
   id: number;
   release_date: string;
-  titile: string;
+  title: string;
   vote_average: number;
   vote_count: number;
-  // poster_path?: string;
+  // backdrop_path?: string;
   // adult: boolean;
   // overview: string;
   // release_date: string;

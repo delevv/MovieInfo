@@ -37,6 +37,6 @@ export class MovieService {
   }
 
   getDetails(id: number): Observable<Movie> {
-    return this.http.get<Movie>(`${API_URL}/${id}&api_key=${API_KEY}`);
+    return this.http.get<Movie>(`${API_URL}/${id}?api_key=${API_KEY}`);
   }
 }

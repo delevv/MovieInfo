@@ -5,7 +5,7 @@ import { Language } from './language';
 
 export interface Movie {
   adult: boolean;
-  backdrop_path: string;
+  poster_path: string;
   budget: number;
   genres: Genre[];
   homepage?: string;

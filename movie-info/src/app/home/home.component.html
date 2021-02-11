@@ -1,6 +1,25 @@
-<p>home works!</p>
 <div *ngIf="popularMovies">
-  <div *ngFor="let movie of popularMovies.results">
-    {{ movie.id }}
+  <h3 class="text-center">Popular Movies</h3>
+  <div class="d-flex flex-row flex-nowrap overflow-auto">
+    <div
+      class="card card-block mx-2"
+      style="min-width: 200px"
+      *ngFor="let movie of popularMovies.results"
+      routerLink="../movies/{{ movie.id }}"
+    >
+      <img
+        src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title text-center">{{ movie.title }}</h5>
+        <p class="card-text">Year: {{ movie.release_date | slice: 0:4 }}</p>
+        <p class="card-text">
+          <fa-icon [icon]="faStar" class="text-warning"></fa-icon>
+          {{ movie.vote_average }} / {{ movie.vote_count }} votes
+        </p>
+      </div>
+    </div>
   </div>
 </div>
