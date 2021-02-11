@@ -1,1 +1,6 @@
 <p>home works!</p>
+<div *ngIf="popularMovies">
+  <div *ngFor="let movie of popularMovies.results">
+    {{ movie.id }}
+  </div>
+</div>
