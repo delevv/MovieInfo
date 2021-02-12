@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/core/services/movie.service';
 import { Movie } from 'src/app/shared/interfaces/movie';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import {
+  faStar,
+  faLaptopCode,
+  faStopwatch,
+} from '@fortawesome/free-solid-svg-icons';
 import { faImdb } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -13,8 +17,11 @@ import { faImdb } from '@fortawesome/free-brands-svg-icons';
 export class MovieDetailsComponent implements OnInit {
   movieId: number;
   movie: Movie;
+
   faStar = faStar;
   faImdb = faImdb;
+  faLaptopCode = faLaptopCode;
+  faStopwatch = faStopwatch;
 
   constructor(
     private movieService: MovieService,

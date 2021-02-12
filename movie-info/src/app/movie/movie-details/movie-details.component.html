@@ -10,15 +10,16 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">
+          <h3 class="card-title">
             {{ movie.title }}
             <a
               href="https://www.imdb.com/title/{{ movie.imdb_id }}/"
               target="_blank"
+              *ngIf="movie.imdb_id"
             >
               <fa-icon [icon]="faImdb" class="text-warning"></fa-icon>
             </a>
-          </h5>
+          </h3>
           <p class="card-text">
             <fa-icon [icon]="faStar" class="text-warning"></fa-icon>
             {{ movie.vote_average }} / 10 with {{ movie.vote_count }} votes from
@@ -29,7 +30,62 @@
               <img src="../../../assets/logos/tmdb.svg" width="80px" alt="" />
             </a>
           </p>
-          <p card-text></p>
+          <p class="card-text" *ngIf="movie.runtime">
+            <fa-icon [icon]="faStopwatch"></fa-icon>
+            {{ movie.runtime }} min
+          </p>
+          <p class="card-text">
+            <strong>Genres:</strong>
+            <a href="#" class="link" *ngFor="let genre of movie.genres">
+              {{ genre.name }}
+            </a>
+          </p>
+          <p class="card-text">
+            <strong>Release date:</strong>
+            {{ movie.release_date }}
+          </p>
+          <p class="card-text" *ngIf="movie.budget > 0">
+            <strong>Budget: </strong
+            >{{ movie.budget | currency: "CAD":"symbol-narrow":"4.2-2" }}
+          </p>
+          <p class="card-text" *ngIf="movie.revenue > 0">
+            <strong>Revenue: </strong
+            >{{ movie.revenue | currency: "CAD":"symbol-narrow":"4.2-2" }}
+          </p>
+          <p class="card-text" *ngIf="movie.homepage">
+            <fa-icon [icon]="faLaptopCode"></fa-icon>
+            <a href="{{ movie.homepage }}" target="_blank" class="link">
+              Website</a
+            >
+          </p>
+          <div class="card-text" *ngIf="movie.overview">
+            <h5>Overview:</h5>
+            <p>
+              {{ movie.overview }}
+            </p>
+          </div>
+          <p class="card-text">
+            <strong>Languages: </strong>
+            <span *ngFor="let language of movie.spoken_languages">
+              {{ language.name }}
+            </span>
+          </p>
+          <p class="card-text">
+            <strong>Companies: </strong>
+            <a
+              href="#"
+              class="link"
+              *ngFor="let company of movie.production_companies"
+            >
+              {{ company.name }}
+            </a>
+          </p>
+          <p class="card-text">
+            <strong>Countries: </strong>
+            <span *ngFor="let country of movie.production_countries">
+              {{ country.name }}
+            </span>
+          </p>
         </div>
       </div>
     </div>
